@@ -38,29 +38,6 @@ The designs were created to the following widths:
 
 
 
-    <!-- Step 2 start --> 
-    <div>
-
-      Select your plan
-      You have the option of monthly or yearly billing.
-    
-      Arcade
-      $9/mo
-    
-      Advanced
-      $12/mo
-    
-      Pro
-      $15/mo
-    
-      Monthly
-      Yearly
-    
-      Go Back
-      Next Step
-    
-    </div>
-    <!-- Step 2 end -->
  
     <!-- Step 3 start -->
     <div>

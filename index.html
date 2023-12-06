@@ -36,7 +36,7 @@
         <div class="step-number">2</div>
         <div class="step-label">
           <span>Step 2</span>
-          <h3>Select plano</h3>
+          <h3>Select plan</h3>
         </div>
       </li>
       <li>
@@ -61,7 +61,7 @@
   <div class="form-content">
 
     <!-- Step 1 start -->
-    <div class="form-content-step">
+    <div class="form-content-step" style="display: none;">
       
       <h1>Personal info</h1> 
       <p>Please provide your name, email address, and phone number.</p>
@@ -86,12 +86,52 @@
       </div>
     </div>
     <!-- Step 1 end -->
+ 
+    <!-- Step 2 start --> 
+    <div class="form-content-step">
+
+      <h1>Select your plan</h1> 
+      <p>You have the option of monthly or yearly billing.</p>
+ 
+      <div class="form-plan">
+        <div> 
+            <img src="assets/images/icon-arcade.svg" alt="Arcade icon" />
+            <h3>Arcade</h3>
+            <span>$9/mo</span>  
+        </div>
+
+        <div> 
+          <img src="assets/images/icon-advanced.svg" alt="Advanced icon" />
+          <h3>Advanced</h3>
+          <span>$12/mo</span>  
+        </div>
+
+        <div> 
+          <img src="assets/images/icon-pro.svg" alt="Pro icon" />
+          <h3>Pro</h3>
+          <span>$15/mo</span>  
+        </div>
+      </div>
+     
+      <div class="form-period">
+
+        Monthly
+        Yearly
+      
+        Go Back
+        Next Step
+      
+      </div>
+      
+    
+    </div>
+    <!-- Step 2 end -->
 
     <div>
-      <button role="button" type="button">
-        Next Step
+      <button role="button" type="button" class="previousBtn">
+        Go Back
       </button>  
-      <button role="button" type="button">
+      <button role="button" type="button" class="nextBtn">
         Next Step
       </button>  
     </div> 
