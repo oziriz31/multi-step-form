@@ -13,14 +13,14 @@ $(function () {
 
   // End -- GLOBAL STATICS VARIABLES
 
-  triggerStepperButtons(_CURRENT_STEP);
+  moveToStep(_CURRENT_STEP);
 
   $_PREV_BTN.on("click", function (e) {
     e.preventDefault();
 
     if (_CURRENT_STEP > 1) {
       _CURRENT_STEP -= 1;
-      triggerStepperButtons(_CURRENT_STEP);
+      moveToStep(_CURRENT_STEP);
     }
   });
 
@@ -29,7 +29,7 @@ $(function () {
 
     if (_CURRENT_STEP < 5) {
       _CURRENT_STEP += 1;
-      triggerStepperButtons(_CURRENT_STEP);
+      moveToStep(_CURRENT_STEP);
     }
   });
 
@@ -55,7 +55,7 @@ $(function () {
   $("#goToChangePlan").on("click", function (e) {
     e.preventDefault();
     _CURRENT_STEP = 2;
-    triggerStepperButtons(_CURRENT_STEP);
+    moveToStep(_CURRENT_STEP);
   });
 
   $('input[id="adonItemChk"]').each(function (i, link) {
@@ -71,16 +71,67 @@ $(function () {
         }
       }
       $(this).parents('div[class*="addon"]').toggleClass("selected");
+      toggleAddonItem();
+      togglePriceTotal();
     });
   });
+
+  function togglePriceTotal() {
+    var totalPrice = _SELECTED_PLAN.price;
+    $.each(_ADDONS, function (i, item) {
+      totalPrice += item.price;
+    });
+
+    $('div[id="summmary-total"]').html(
+      "<p>Total " +
+        "<span>(" +
+        ($('input[name="PlanPeriod"]').is(":checked")
+          ? "per year"
+          : "per month") +
+        ")</span></p>" +
+        "<div>" +
+        '<span id="plan-price">+$' +
+        totalPrice +
+        "/</span>" +
+        '<span id="period">' +
+        ($('input[name="PlanPeriod"]').is(":checked") ? "yr" : "mo") +
+        "</span>" +
+        "</div>"
+    );
+  }
+
+  function toggleAddonItem() {
+    $('div[id="addon-item"]').remove();
+    $.each(_ADDONS, function (i, item) {
+      $('div[id="form-summary"]').append(
+        '<div id="addon-item" class="item">' +
+          "<div>" +
+          "<p>" +
+          item.item +
+          "</p>" +
+          "</div>" +
+          "<div>" +
+          '<span id="item-price">+$' +
+          item.price +
+          "/</span>" +
+          '<span id="period">' +
+          ($('input[name="PlanPeriod"]').is(":checked") ? "yr" : "mo") +
+          "</span>" +
+          "</div>" +
+          "</div>"
+      );
+    });
+  }
 
   function tooglePlanSelected() {
     $('input[name="Plan"]').val(JSON.stringify(_SELECTED_PLAN));
     $("#selected-plan-name").html(_SELECTED_PLAN.planName);
     $("#plan-price").html("+$" + _SELECTED_PLAN.price + "/");
+    toggleAddonItem();
+    togglePriceTotal();
   }
 
-  function triggerStepperButtons(currentStep) {
+  function moveToStep(currentStep) {
     // Set the form data attribute on the DOM with _CURRENT_STEP value
     $("form[data-current-step]").attr("data-current-step", currentStep);
 
