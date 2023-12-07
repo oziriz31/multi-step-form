@@ -8,7 +8,7 @@ $(function () {
   var $_PREV_BTN = $("#formNavigator").find("button:first-child");
   var $_NEXT_BTN = $("#formNavigator").find("button:last-child");
 
-  var _SELECTED_PLAN = {};
+  var _SELECTED_PLAN = null;
   var _ADDONS = [];
 
   // End -- GLOBAL STATICS VARIABLES
@@ -19,8 +19,10 @@ $(function () {
     e.preventDefault();
 
     if (_CURRENT_STEP > 1) {
-      _CURRENT_STEP -= 1;
-      moveToStep(_CURRENT_STEP);
+      if (vaidateStepInputs(_CURRENT_STEP)) {
+        _CURRENT_STEP -= 1;
+        moveToStep(_CURRENT_STEP);
+      }
     }
   });
 
@@ -28,8 +30,10 @@ $(function () {
     e.preventDefault();
 
     if (_CURRENT_STEP < 5) {
-      _CURRENT_STEP += 1;
-      moveToStep(_CURRENT_STEP);
+      if (vaidateStepInputs(_CURRENT_STEP)) {
+        _CURRENT_STEP += 1;
+        moveToStep(_CURRENT_STEP);
+      }
     }
   });
 
@@ -179,5 +183,68 @@ $(function () {
 
     $("div[data-step]").hide();
     $('div[data-step="' + currentStep + '"]').show();
+  }
+
+  function vaidateStepInputs(stepNumber, e) {
+    var valid = true;
+
+    switch (stepNumber) {
+      case 1:
+        var name = $('input[name="Name"]').val(),
+          email = $('input[name="Email"]').val(),
+          phoneNumber = $('input[name="PhoneNumber"]').val();
+
+        if (name === null || name === "") {
+          $('input[name="Name"]').after(
+            '<span class="input-error" for="Name">Personal name is required.</span>'
+          );
+          valid = false;
+        } else {
+          $('span[class="input-error"][for="Name"]').remove();
+        }
+
+        if (email === null || email === "") {
+          $('input[name="Email"]').after(
+            '<span class="input-error" for="Name">Email address is required.</span>'
+          );
+          valid = false;
+        } else {
+          $('span[class="input-error"][for="Email"]').remove();
+        }
+
+        if (phoneNumber === null || phoneNumber === "") {
+          $('input[name="PhoneNumber"]').after(
+            '<span class="input-error" for="Name">Phone number is required.</span>'
+          );
+          valid = false;
+        } else {
+          $('span[class="input-error"][for="PhoneNumber"]').remove();
+        }
+        break;
+      case 2:
+        if (_SELECTED_PLAN === null) {
+          $('div[data-step="2"]').append(
+            '<span class="input-error" for="Plan">No plan selected.</span>'
+          );
+          valid = false;
+        } else {
+          $('span[class="input-error"][for="Plan"]').remove();
+        }
+        break;
+      case 3:
+        if (_ADDONS.length == 0) {
+          $('div[data-step="3"]').append(
+            '<span class="input-error" for="Plan">You have to select a least 1 add-on item.</span>'
+          );
+          valid = false;
+        } else {
+          $('span[class="input-error"][for="Addon"]').remove();
+        }
+        break;
+      case 4:
+        break;
+    }
+
+    return valid;
   }
 });

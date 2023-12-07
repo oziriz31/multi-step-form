@@ -354,6 +354,12 @@ input::placeholder {
     font-size: 16px;
 }
 
+.input-error { 
+    color: hsl(0deg 100% 62%);
+    font-size: 15px;
+    margin-top: 5px;
+}
+
 @media screen and (max-width: 375px) { 
     .form-card > .step-sidebar { 
         background-image: url("../images/bg-sidebar-mobile.svg");
