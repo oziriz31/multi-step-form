@@ -213,6 +213,62 @@ input::placeholder {
     background: #f8f9fe;
     border-radius: 10px;
     padding: 20px;
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; 
+}
+
+/* Plan Addons */
+.form-addons { 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; 
+}
+
+.form-addons > .addon { 
+    cursor: pointer; 
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid hsl(231, 11%, 63%);
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center; 
+    transition-property: border, background-color;
+    transition-duration: 0.2s;
+    margin-bottom: 20px;
+}
+.form-addons > .selected { 
+    background-color: #f8f9fe;
+    border: 1px solid hsl(243, 100%, 62%);
+}
+
+.form-addons > .addon > .custom-checkbox {
+    margin-right: 15px;
+}
+
+.form-addons > .addon > div {  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.form-addons > .addon > div > .addon-price {
+    color: hsl(243, 100%, 62%);
+    font-size: 15px;
+}
+.addon-details > h3 { 
+    color: hsl(213, 96%, 18%);
+}
+.addon-details > p {
+    margin-top: 5px; 
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
 }
 
 

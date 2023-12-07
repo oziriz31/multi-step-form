@@ -38,47 +38,6 @@ The designs were created to the following widths:
 
 
 
- 
-    <!-- Step 3 start -->
-    <div>
-      
-      Pick add-ons
-      Add-ons help enhance your gaming experience.
-
-      Online service
-      Access to multiplayer games
-      +$1/mo
-
-      Larger storage
-      Extra 1TB of cloud save
-      +$2/mo
-
-      Customizable Profile
-      Custom theme on your profile
-      +$2/mo
-
-      Go Back
-      Next Step
-
-    </div> 
-    <!-- Step 3 end -->
-  
-    <!-- Step 4 start -->
-    <div>
-
-      Finishing up
-      Double-check everything looks OK before confirming.
-    
-      <!-- Dynamically add subscription and add-on selections here -->
-    
-      Total (per month/year)
-    
-      Go Back
-      Confirm
-    
-    </div>
-    <!-- Step 4 end -->
- 
     <!-- Step 5 start --> 
     <div>
       
