@@ -361,8 +361,46 @@ input::placeholder {
 }
 
 @media screen and (max-width: 375px) { 
-    .form-card > .step-sidebar { 
-        background-image: url("../images/bg-sidebar-mobile.svg");
+    
+    .form-card {
+        width: 75%;
+        margin: 10px;
+        box-shadow: none;
+        border-radius: 15px;
+        margin-top: 35%;
+    }
+
+    .form-card > .step-sidebar {  
+        position: fixed;
+        top: 0;
+        border-radius: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+        text-align: center;
+        margin: 0; 
+        padding: 35px 0 70px 0;
+    }
+    .form-card > .step-sidebar > .step > li {
+        cursor: pointer;
+        display: inline-block;
+        margin: 0; 
+        width: auto;
+        border: 3px solid transparent;
+        transition-property: border;
+        transition-duration: 0.1s;
+    }
+
+    .form-card > .form-content { 
+        padding: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .step-label {
+        display: none;
     }
 }
 
