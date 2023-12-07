@@ -8,6 +8,9 @@ $(function () {
   var $_PREV_BTN = $("#formNavigator").find("button:first-child");
   var $_NEXT_BTN = $("#formNavigator").find("button:last-child");
 
+  var _SELECTED_PLAN = {};
+  var _ADDONS = [];
+
   // End -- GLOBAL STATICS VARIABLES
 
   triggerStepperButtons(_CURRENT_STEP);
@@ -29,6 +32,53 @@ $(function () {
       triggerStepperButtons(_CURRENT_STEP);
     }
   });
+
+  $("div[data-plan]").each(function (i, link) {
+    $(link).on("click", function (e) {
+      e.preventDefault();
+      $("div[data-plan]").removeClass("selected");
+      $(link).toggleClass("selected");
+
+      _SELECTED_PLAN = {
+        planName: $(link).data("plan"),
+        price: parseInt($(link).data("price")),
+      };
+      tooglePlanSelected();
+    });
+  });
+
+  $('input[name="PlanPeriod"]').on("change", function (e) {
+    e.preventDefault();
+    $('span[id="period"]').html(this.checked ? "yr" : "mo");
+  });
+
+  $("#goToChangePlan").on("click", function (e) {
+    e.preventDefault();
+    _CURRENT_STEP = 2;
+    triggerStepperButtons(_CURRENT_STEP);
+  });
+
+  $('input[id="adonItemChk"]').each(function (i, link) {
+    $(link).on("click", function (e) {
+      var addon = { item: $(this).data("item"), price: $(this).data("price") };
+      if (this.checked) {
+        _ADDONS.push(addon);
+      } else {
+        for (var i = _ADDONS.length - 1; i >= 0; --i) {
+          if (_ADDONS[i].item == $(this).data("item")) {
+            _ADDONS.splice(i, 1);
+          }
+        }
+      }
+      $(this).parents('div[class*="addon"]').toggleClass("selected");
+    });
+  });
+
+  function tooglePlanSelected() {
+    $('input[name="Plan"]').val(JSON.stringify(_SELECTED_PLAN));
+    $("#selected-plan-name").html(_SELECTED_PLAN.planName);
+    $("#plan-price").html("+$" + _SELECTED_PLAN.price + "/");
+  }
 
   function triggerStepperButtons(currentStep) {
     // Set the form data attribute on the DOM with _CURRENT_STEP value

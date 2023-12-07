@@ -193,7 +193,7 @@ input::placeholder {
     transition-property: border, background-color;
     transition-duration: 0.2s;
 }
-.form-plan > div:hover { 
+.form-plan > .selected { 
     background-color: #f8f9fe;
     border: 1px solid hsl(243, 100%, 62%);
 }

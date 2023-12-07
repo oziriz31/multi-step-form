@@ -24,7 +24,7 @@
 </head>
 <body>
 
-  <form data-current-step="1" role="main" class="form-card">
+  <form data-current-step="3" role="main" class="form-card">
 
     <!-- Sidebar start -->
     <div class="step-sidebar">
@@ -97,24 +97,26 @@
 
         <h1>Select your plan</h1> 
         <p>You have the option of monthly or yearly billing.</p>
-  
-        <div class="form-plan">
-          <div> 
+        
+        <input type="hidden" name="Plan" /> 
+
+        <div class="form-plan" id="plan">
+          <div data-plan="Arcade" data-price="9"> 
               <img src="assets/images/icon-arcade.svg" alt="Arcade icon" />
               <h3>Arcade</h3>
-              <span>$9/mo</span>  
+              <span>$9/<span id="period">mo</span></span>  
           </div>
 
-          <div> 
+          <div data-plan="Advanced" data-price="12"> 
             <img src="assets/images/icon-advanced.svg" alt="Advanced icon" />
             <h3>Advanced</h3>
-            <span>$12/mo</span>  
+            <span>$12/<span id="period">mo</span></span>  
           </div>
 
-          <div> 
+          <div data-plan="Pro" data-price="15"> 
             <img src="assets/images/icon-pro.svg" alt="Pro icon" />
             <h3>Pro</h3>
-            <span>$15/mo</span>  
+            <span>$15/<span id="period">mo</span></span>  
           </div>
         </div>
       
@@ -123,7 +125,7 @@
           <label for="monthly">Monthly</label>
 
           <label class="switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
+            <input type="checkbox" id="checkbox" name="PlanPeriod" />
             <div class="slider round"></div>
           </label> 
 
@@ -145,7 +147,7 @@
 
           <div class="addon"> 
             <label class="custom-checkbox">
-              <input type="checkbox">
+              <input id="adonItemChk" type="checkbox" data-item="Online service" data-price="1">
               <span class="checkmark"></span>
             </label> 
             <div> 
@@ -153,32 +155,32 @@
                 <h3>Online service</h3>
                 <p>Access to multiplayer games</p>  </div>
                 <div class="addon-price">+$1/<span id="period">mo</span></div>
-            </div> 
+            </div>
           </div>
   
           <div class="addon"> 
             <label class="custom-checkbox">
-              <input type="checkbox">
+              <input id="adonItemChk" type="checkbox" data-item="Larger storage" data-price="1">
               <span class="checkmark"></span>
             </label> 
             <div> 
               <div class="addon-details">
                 <h3>Larger storage</h3>
                 <p>Extra 1TB of cloud save</p>  </div>
-                <div class="addon-price">+$2/<span id="period">mo</span></div>
+                <div class="addon-price" data-price="2">+$2/<span id="period">mo</span></div>
             </div> 
           </div>
           
-          <div class="addon selected"> 
+          <div class="addon"> 
             <label class="custom-checkbox">
-              <input type="checkbox" checked="checked">
+              <input id="adonItemChk" type="checkbox" data-item="Customizable Profile" data-price="2">
               <span class="checkmark"></span>
             </label> 
             <div> 
               <div class="addon-details">
                 <h3>Customizable Profile</h3>
                 <p>Custom theme on your profile</p>  </div>
-                <div class="addon-price">+$2/<span id="period">mo</span></div>
+                <div class="addon-price" data-price="2">+$2/<span id="period">mo</span></div>
             </div> 
           </div>
 
@@ -197,8 +199,8 @@
 
           <div class="plan" id="selectedPlan">
             <div>
-              <h3 id="selectedPlanName">No Plan selected</h3>
-              <button role="button" type="button">Change</button>
+              <h3 id="selected-plan-name">No Plan selected</h3>
+              <button role="button" type="button" id="goToChangePlan">Change</button>
             </div> 
             <div>
               <span id="plan-price">+$9/</span>
@@ -212,18 +214,21 @@
               <p>Online Service</p> 
             </div> 
             <div>
-              <span id="plan-price">+$1/</span>
-              <span id="period">mo</span></div>
+              <span id="item-price">+$1/</span>
+              <span id="period">mo</span>
+            </div>
           </div>
+
           <div class="item">
             <div>
               <p>Larger storage</p> 
             </div> 
             <div>
-              <span id="plan-price">+$2/</span>
-              <span id="period">mo</span></div>
+              <span id="item-price">+$2/</span>
+              <span id="period">mo</span>
+            </div>
           </div>
-        <!-- Dynamically add subscription and add-on selections here -->
+          <!-- Dynamically add subscription and add-on selections here -->
       
         </div>
         
@@ -271,7 +276,7 @@
  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://yvanakoo.com">Yvan Akoo</a>.
   </div>
 
   <script type="text/javascript" src="assets/js/jquery-3.7.1.min.js"></script>
