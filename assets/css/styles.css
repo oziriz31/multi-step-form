@@ -271,6 +271,88 @@ input::placeholder {
     font-size: 16px;
 }
 
+/* form-summary */
+.form-summary { 
+    background-color: #f8f9fe;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-summary > .plan, .item { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; 
+}
+.form-summary > .plan > div:first-child > h3 { 
+    color: hsl(213, 96%, 18%);
+}
+.form-summary > .plan > div:first-child > button { 
+    margin-top: 5px; 
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.form-summary > .plan > div:last-child {
+    font-weight: bold;
+    color: hsl(213, 96%, 18%);
+}
+
+.item > div {
+    margin: 10px 0;
+}
+.item > div > p { 
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
+}
+.item > div:last-child { 
+    color: hsl(213, 96%, 18%);
+}
+
+.summmary-total { 
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; 
+}
+.summmary-total > p { 
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
+}
+.summmary-total > div:last-child { 
+    color: hsl(243, 100%, 62%);
+    font-weight: bold;
+    font-size: large;
+}
+
+.divider {
+    border-color: hsl(225, 19%, 92%);
+    margin: 20px 0 20px 0;
+}
+
+/* form-thank-you */
+.form-thank-you { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+.form-thank-you > h1 {
+    margin-top: 20px;
+    font-weight: bold;
+    color: hsl(213, 96%, 18%);
+}
+.form-thank-you > p { 
+    margin-top: 20px;
+    text-align: center;
+    color: hsl(231, 11%, 63%);
+    font-size: 16px;
+}
 
 @media screen and (max-width: 375px) { 
     .form-card > .step-sidebar { 

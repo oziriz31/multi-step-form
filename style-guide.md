@@ -35,18 +35,3 @@ The designs were created to the following widths:
 
 - Family: [Ubuntu](https://fonts.google.com/specimen/Ubuntu)
 - Weights: 400, 500, 700
-
-
-
-    <!-- Step 5 start --> 
-    <div>
-      
-      Thank you!
-
-      Thanks for confirming your subscription! We hope you have fun 
-      using our platform. If you ever need support, please feel free 
-      to email us at support@loremgaming.com.
-
-    </div> 
-    <!-- Step 5 end -->
-  

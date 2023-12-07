@@ -24,203 +24,258 @@
 </head>
 <body>
 
-  <section role="main" class="form-card">
+  <form data-current-step="1" role="main" class="form-card">
 
-  <!-- Sidebar start -->
-  <div class="step-sidebar">
+    <!-- Sidebar start -->
+    <div class="step-sidebar">
 
-    <ul class="step">
-      <li>
-        <div class="step-number step-active">1</div>
-        <div class="step-label">
-          <span>Step 1</span>
-          <h3>Your info</h3>
+      <ul class="step" id="stepNumber">
+        <li data-step-number="1">
+          <div class="step-number">1</div>
+          <div class="step-label">
+            <span>Step 1</span>
+            <h3>Your info</h3>
+          </div>
+        </li>
+        <li data-step-number="2">
+          <div class="step-number">2</div>
+          <div class="step-label">
+            <span>Step 2</span>
+            <h3>Select plan</h3>
+          </div>
+        </li>
+        <li data-step-number="3">
+          <div class="step-number">3</div>
+          <div class="step-label">
+            <span>Step 3</span>
+            <h3>Add-ons</h3>
+          </div>
+        </li>
+        <li data-step-number="4">
+          <div class="step-number">4</div>
+          <div class="step-label">
+            <span>Step 4</span>
+            <h3>Summary</h3>
+          </div>
+        </li>
+      </ul> 
+    
+    </div> 
+    <!-- Sidebar end -->
+
+    <div class="form-content">
+
+      <!-- Step 1 start -->
+      <div data-step="1" class="form-content-step">
+        
+        <h1>Personal info</h1> 
+        <p>Please provide your name, email address, and phone number.</p>
+
+        <div class="form">
+
+          <div class="form-group"> 
+            <label for="Name">Name</label>
+            <input type="text" name="Name" placeholder="e.g. Stephen King" />
+          </div> 
+          
+          <div class="form-group"> 
+            <label for="Email">Email Address</label>
+            <input type="email" name="Email" placeholder="e.g. stephenking@lorem.com" />
+          </div> 
+          
+          <div class="form-group"> 
+            <label for="PhoneNumber">Phone Number</label>
+            <input type="tel" name="PhoneNumber" placeholder="e.g. +1 234 567 890" />
+          </div> 
+          
         </div>
-      </li>
-      <li>
-        <div class="step-number">2</div>
-        <div class="step-label">
-          <span>Step 2</span>
-          <h3>Select plan</h3>
-        </div>
-      </li>
-      <li>
-        <div class="step-number">3</div>
-        <div class="step-label">
-          <span>Step 3</span>
-          <h3>Add-ons</h3>
-        </div>
-      </li>
-      <li>
-        <div class="step-number">4</div>
-        <div class="step-label">
-          <span>Step 4</span>
-          <h3>Summary</h3>
-        </div>
-      </li>
-    </ul> 
+      </div>
+      <!-- Step 1 end -->
   
-  </div> 
-  <!-- Sidebar end -->
+      <!-- Step 2 start --> 
+      <div data-step="2" class="form-content-step">
 
-  <div class="form-content">
-
-    <!-- Step 1 start -->
-    <div class="form-content-step" style="display: none;">
-      
-      <h1>Personal info</h1> 
-      <p>Please provide your name, email address, and phone number.</p>
-
-      <div class="form">
-
-        <div class="form-group"> 
-          <label for="Name">Name</label>
-          <input type="text" name="Name" placeholder="e.g. Stephen King" />
-        </div> 
-        
-        <div class="form-group"> 
-          <label for="Email">Email Address</label>
-          <input type="email" name="Email" placeholder="e.g. stephenking@lorem.com" />
-        </div> 
-        
-        <div class="form-group"> 
-          <label for="PhoneNumber">Phone Number</label>
-          <input type="tel" name="PhoneNumber" placeholder="e.g. +1 234 567 890" />
-        </div> 
-        
-      </div>
-    </div>
-    <!-- Step 1 end -->
- 
-    <!-- Step 2 start --> 
-    <div class="form-content-step" style="display: none;">
-
-      <h1>Select your plan</h1> 
-      <p>You have the option of monthly or yearly billing.</p>
- 
-      <div class="form-plan">
-        <div> 
-            <img src="assets/images/icon-arcade.svg" alt="Arcade icon" />
-            <h3>Arcade</h3>
-            <span>$9/mo</span>  
-        </div>
-
-        <div> 
-          <img src="assets/images/icon-advanced.svg" alt="Advanced icon" />
-          <h3>Advanced</h3>
-          <span>$12/mo</span>  
-        </div>
-
-        <div> 
-          <img src="assets/images/icon-pro.svg" alt="Pro icon" />
-          <h3>Pro</h3>
-          <span>$15/mo</span>  
-        </div>
-      </div>
-     
-      <div class="form-period">
-
-        <label for="monthly">Monthly</label>
-
-        <label class="switch" for="checkbox">
-          <input type="checkbox" id="checkbox" />
-          <div class="slider round"></div>
-        </label> 
-
-        <label for="yearly">Yearly</label>
-         
-      </div>
-      
-    
-    </div>
-    <!-- Step 2 end -->
-
- 
-    <!-- Step 3 start -->
-    <div class="form-content-step" style="display: none;">
-      
-      <h1>Pick add-ons</h1> 
-      <p>Add-ons help enhance your gaming experience.</p>
-   
-      <div class="form-addons">
-
-        <div class="addon"> 
-          <label class="custom-checkbox">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label> 
+        <h1>Select your plan</h1> 
+        <p>You have the option of monthly or yearly billing.</p>
+  
+        <div class="form-plan">
           <div> 
-            <div class="addon-details">
-              <h3>Online service</h3>
-              <p>Access to multiplayer games</p>  </div>
-              <div class="addon-price">+$1/<span id="period">mo</span></div>
+              <img src="assets/images/icon-arcade.svg" alt="Arcade icon" />
+              <h3>Arcade</h3>
+              <span>$9/mo</span>  
+          </div>
+
+          <div> 
+            <img src="assets/images/icon-advanced.svg" alt="Advanced icon" />
+            <h3>Advanced</h3>
+            <span>$12/mo</span>  
+          </div>
+
+          <div> 
+            <img src="assets/images/icon-pro.svg" alt="Pro icon" />
+            <h3>Pro</h3>
+            <span>$15/mo</span>  
+          </div>
+        </div>
+      
+        <div class="form-period">
+
+          <label for="monthly">Monthly</label>
+
+          <label class="switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label> 
+
+          <label for="yearly">Yearly</label>
+          
+        </div>
+        
+      
+      </div>
+      <!-- Step 2 end -->
+ 
+      <!-- Step 3 start -->
+      <div data-step="3" class="form-content-step">
+        
+        <h1>Pick add-ons</h1> 
+        <p>Add-ons help enhance your gaming experience.</p>
+    
+        <div class="form-addons">
+
+          <div class="addon"> 
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label> 
+            <div> 
+              <div class="addon-details">
+                <h3>Online service</h3>
+                <p>Access to multiplayer games</p>  </div>
+                <div class="addon-price">+$1/<span id="period">mo</span></div>
+            </div> 
+          </div>
+  
+          <div class="addon"> 
+            <label class="custom-checkbox">
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label> 
+            <div> 
+              <div class="addon-details">
+                <h3>Larger storage</h3>
+                <p>Extra 1TB of cloud save</p>  </div>
+                <div class="addon-price">+$2/<span id="period">mo</span></div>
+            </div> 
+          </div>
+          
+          <div class="addon selected"> 
+            <label class="custom-checkbox">
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label> 
+            <div> 
+              <div class="addon-details">
+                <h3>Customizable Profile</h3>
+                <p>Custom theme on your profile</p>  </div>
+                <div class="addon-price">+$2/<span id="period">mo</span></div>
+            </div> 
+          </div>
+
+        </div>
+  
+      </div> 
+      <!-- Step 3 end -->
+    
+      <!-- Step 4 start -->
+      <div data-step="4" class="form-content-step">
+
+        <h1>Finishing up</h1> 
+        <p>Double-check everything looks OK before confirming.</p>
+      
+        <div class="form-summary">
+
+          <div class="plan" id="selectedPlan">
+            <div>
+              <h3 id="selectedPlanName">No Plan selected</h3>
+              <button role="button" type="button">Change</button>
+            </div> 
+            <div>
+              <span id="plan-price">+$9/</span>
+              <span id="period">mo</span></div>
+          </div>
+
+          <hr class="divider" />
+          
+          <div class="item">
+            <div>
+              <p>Online Service</p> 
+            </div> 
+            <div>
+              <span id="plan-price">+$1/</span>
+              <span id="period">mo</span></div>
+          </div>
+          <div class="item">
+            <div>
+              <p>Larger storage</p> 
+            </div> 
+            <div>
+              <span id="plan-price">+$2/</span>
+              <span id="period">mo</span></div>
+          </div>
+        <!-- Dynamically add subscription and add-on selections here -->
+      
+        </div>
+        
+        <div class="summmary-total">
+          <p>Total <span>(per month)</span></p>  
+          <div>
+            <span id="plan-price">+$12/</span>
+            <span id="period">mo</span>
           </div> 
         </div>
- 
-        <div class="addon"> 
-          <label class="custom-checkbox">
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label> 
-          <div> 
-            <div class="addon-details">
-              <h3>Larger storage</h3>
-              <p>Extra 1TB of cloud save</p>  </div>
-              <div class="addon-price">+$2/<span id="period">mo</span></div>
-          </div> 
-        </div>
+      
+      </div>
+      <!-- Step 4 end -->
+    
+      <!-- Step 5 start --> 
+      <div data-step="5" class="form-content-step">
         
-        <div class="addon selected"> 
-          <label class="custom-checkbox">
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-          </label> 
-          <div> 
-            <div class="addon-details">
-              <h3>Customizable Profile</h3>
-              <p>Custom theme on your profile</p>  </div>
-              <div class="addon-price">+$2/<span id="period">mo</span></div>
-          </div> 
+        <div class="form-thank-you">
+           
+          <img src="assets/images/icon-thank-you.svg" alt="Thank you icon" />
+        
+          <h1>Thank you!</h1>
+          <p>  
+            Thanks for confirming your subscription! We hope you have fun 
+            using our platform. If you ever need support, please feel free 
+            to email us at support@loremgaming.com.
+          </p>
+        
         </div>
 
-      </div>
- 
-    </div> 
-    <!-- Step 3 end -->
-   
-    <!-- Step 4 start -->
-    <div class="form-content-step">
+      </div> 
+      <!-- Step 5 end -->
 
-      <h1>Finishing up</h1> 
-      <p>Double-check everything looks OK before confirming.</p>
-    
-      <div class="form-summary">
-
-      <!-- Dynamically add subscription and add-on selections here -->
-    
-      Total (per month/year)
-    
-      </div>
-       
+      <div id="formNavigator">
+        <button role="button" type="button" class="previousBtn">
+          Go Back
+        </button>  
+        <button role="button" type="button" class="nextBtn">
+          Next Step
+        </button>  
+      </div> 
     </div>
-    <!-- Step 4 end -->
- 
 
-    <div>
-      <button role="button" type="button" class="previousBtn">
-        Go Back
-      </button>  
-      <button role="button" type="button" class="nextBtn">
-        Next Step
-      </button>  
-    </div> 
-  </div>
-
-  </section>
+  </form>
  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script type="text/javascript" src="assets/js/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript" src="assets/js/index.js"></script>
+
 </body>
 </html>
